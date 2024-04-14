@@ -17,6 +17,9 @@
             <h3> Input alamat Pengiriman dan Pembayaran</h3>
             <form method="post" action="<?php echo base_url('dashboard/proses_pesanan') ?>">
                 <div class="form-group">
+                    <input type="hidden" name="id_user" placeholder="id" class="form-control" value="<?php echo $this->session->userdata('id'); ?>">
+                </div>
+                <div class="form-group">
                     <label>Nama Lengkap</label>
                     <input type="text" name="nama" placeholder="Nama Lengkap anda" class="form-control" value="<?php echo $this->session->userdata('nama'); ?>">
                 </div>
