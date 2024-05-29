@@ -2,15 +2,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="btn btn-sm btn-success">
-                <?php $grand_total = 0;
-                if ($keranjang = $this->cart->contents()) {
-                    foreach ($keranjang as $item) {
-                        $grand_total = $grand_total + $item['subtotal'];
-                    }
-                    echo "<h4>Total Belanja Anda: Rp." . number_format($grand_total, 0, ',', '.');
-                ?>
-            </div>
+
 
             <br>
             <br>
@@ -18,6 +10,9 @@
             <form method="post" action="<?php echo base_url('dashboard/proses_pesanan') ?>">
                 <div class="form-group">
                     <input type="hidden" name="id_user" placeholder="id" class="form-control" value="<?php echo $this->session->userdata('id'); ?>">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="status" placeholder="id" class="form-control" value="BelumBayar">
                 </div>
                 <div class="form-group">
                     <label>Nama Lengkap</label>
@@ -31,30 +26,20 @@
                     <label>No Telp</label>
                     <input type="text" name="no_telp" placeholder="No Telepon Anda" class="form-control" value="<?php echo $this->session->userdata('no_telp'); ?>">
                 </div>
-                <div class=" form-group">
-                    <label>Jasa Pengiriman</label>
-                    <select>
-                        <option>JNE</option>
-                        <option>Gojek</option>
-                        <option>Tiki</option>
-                        <option>Grab</option>
-                    </select>
-                </div>
                 <div class="form-group">
-                    <label>Pilih Bank</label>
-                    <select>
-                        <option>BCA</option>
-                        <option>BNI</option>
-                        <option>BRI</option>
-                        <option>Mandiri</option>
+                    <label>Pilih Pembayaran</label>
+                    <select name="pembayaran">
+                        <option value="BCA">BCA</option>
+                        <option value="BRI">BRI</option>
+                        <option value="Dana">Dana</option>
+                        <option value="Mandiri">Mandiri</option>
+                        <option value="GoPay">GoPay</option>
                     </select>
                 </div>
 
                 <button type="submit" class="btn btn-sm btn-primary">Pesan</button>
             </form>
-        <?php } else {
-                    echo "<h4>Keranjang Anda Masih Kosong</h4>";
-                } ?>
-        <div class="col-md2"></div>
+
+            <div class="col-md2"></div>
         </div>
     </div>

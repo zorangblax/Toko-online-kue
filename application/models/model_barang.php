@@ -48,4 +48,12 @@ final class model_barang extends CI_Model
             return false;
         }
     }
+    public function ambil_keyword($keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_barang');
+        $this->db->like('nama_brg', $keyword);
+        $this->db->or_like('kategori', $keyword);
+        return $this->db->get()->result();
+    }
 }

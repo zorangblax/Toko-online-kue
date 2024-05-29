@@ -19,9 +19,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('admin/dashboard_admin') ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                <a class="nav-link" href="<?php echo base_url('admin/data_user') ?>">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Data User</span></a>
             </li>
 
             <!-- Divider -->
@@ -37,9 +37,9 @@
                     <span>Data Barang</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/invoice') ?>">
-                    <i class="fas fa-file-invoice"></i>
-                    <span>Invoices</span></a>
+                <a class="nav-link" href="<?php echo base_url('admin/laporan') ?>">
+                    <i class="fas fa-paste"></i>
+                    <span>Laporan</span></a>
             </li>
 
 
@@ -108,9 +108,9 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <?php if ($this->session->userdata('username')) { ?>
+                            <?php if ($this->session->userdata('email')) { ?>
                                 <li>
-                                    <div>Selamat Datang <?php echo $this->session->userdata('username'); ?> </div>
+                                    <div>Selamat Datang <?php echo $this->session->userdata('nama'); ?> </div>
                                 </li>
                                 <li class="ml-2">
                                     <?php echo anchor('auth/logout', 'logout') ?>

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h4>Detail pesanan <div class="btn btn-sm btn-success">No.Invoice: <?php echo $invoice->id ?> </div>
+    <h4>Detail pesanan <div class="btn btn-sm btn-success">No.Pesanan: <?php echo $pesanan->id ?> </div>
     </h4>
 
     <table class="table table-bordered table-hover table-stripped">
@@ -12,15 +12,15 @@
         </tr>
         <?php
         $total = 0;
-        foreach ($pesanan as $psn) :
-            $subtotal = $psn->jumlah * $psn->harga;
+        foreach ($detail as $dtl) :
+            $subtotal = $dtl->jumlah * $dtl->harga;
             $total += $subtotal ?>
 
             <tr>
-                <td><?php echo $psn->id_brg ?></td>
-                <td><?php echo $psn->nama_brg ?></td>
-                <td><?php echo $psn->jumlah ?></td>
-                <td><?php echo number_format($psn->harga, 0, ',', '.') ?></td>
+                <td><?php echo $dtl->id_brg ?></td>
+                <td><?php echo $dtl->nama_brg ?></td>
+                <td><?php echo $dtl->jumlah ?></td>
+                <td><?php echo number_format($dtl->harga, 0, ',', '.') ?></td>
                 <td><?php echo number_format($subtotal, 0, ',', '.') ?></td>
 
             </tr>
@@ -30,7 +30,7 @@
             <td align="right">Rp. <?php echo number_format($total, 0, ',', '.') ?></td>
         </tr>
     </table>
-    <a href="<?php echo base_url('admin/invoice/index')  ?>">
+    <a href="<?php echo base_url('admin/laporan/index')  ?>">
         <div class="btn btn-sm btn-primary">Kembali</div>
     </a>
 </div>

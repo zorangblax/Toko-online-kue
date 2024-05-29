@@ -1,21 +1,37 @@
 <?php
 class kategori extends CI_Controller
 {
-    public function elektronik()
+    public function bolu()
     {
-        $data['elektronik'] = $this->model_kategori->data_elektronik()->result();
+        $data['bolu'] = $this->model_kategori->data_bolu()->result();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('kategori/elektronik', $data);
+        $this->load->view('kategori/bolu', $data);
         $this->load->view('templates/footer');
     }
 
-    public function pakaian_pria()
+    public function donat()
     {
-        $data['pakaian_pria'] = $this->model_kategori->data_pakaian_pria()->result();
+        $data['donat'] = $this->model_kategori->data_donat()->result();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('kategori/pakaian_pria', $data);
+        $this->load->view('kategori/donat', $data);
+        $this->load->view('templates/footer');
+    }
+    public function cake()
+    {
+        $data['cake'] = $this->model_kategori->data_cake()->result();
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('kategori/cake', $data);
+        $this->load->view('templates/footer');
+    }
+    public function idul_fitri()
+    {
+        $data['idul_fitri'] = $this->model_kategori->data_idul_fitri()->result();
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('kategori/idul_fitri', $data);
         $this->load->view('templates/footer');
     }
 }

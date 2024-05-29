@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2024 at 12:26 AM
+-- Generation Time: May 30, 2024 at 12:31 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,139 @@ SET time_zone = "+00:00";
 --
 -- Database: `toko_online`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_pesanan`
+--
+
+CREATE TABLE `detail_pesanan` (
+  `id` int(11) NOT NULL,
+  `id_pesanan` int(11) NOT NULL,
+  `id_brg` int(11) NOT NULL,
+  `nama_brg` varchar(50) NOT NULL,
+  `jumlah` int(3) NOT NULL,
+  `harga` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_pesanan`
+--
+
+INSERT INTO `detail_pesanan` (`id`, `id_pesanan`, `id_brg`, `nama_brg`, `jumlah`, `harga`) VALUES
+(7, 5, 3, 'Laptop', 1, 3500000),
+(8, 6, 3, 'Laptop', 1, 3500000),
+(9, 7, 7, 'Baju cowok lengan panjang', 1, 150000),
+(10, 8, 3, 'Laptop', 1, 3500000),
+(11, 8, 4, 'Canon 3000', 1, 5000000),
+(12, 9, 2, 'Hp', 1, 2500000),
+(13, 9, 4, 'Canon 3000', 1, 5000000),
+(14, 10, 16, 'Bolu Berudu Merah', 1, 50000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE `history` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `nama` varchar(56) NOT NULL,
+  `alamat` varchar(225) NOT NULL,
+  `no_telp` varchar(50) NOT NULL,
+  `pembayaran` varchar(50) NOT NULL,
+  `tgl_pesan` datetime NOT NULL,
+  `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`id`, `id_user`, `nama`, `alamat`, `no_telp`, `pembayaran`, `tgl_pesan`, `status`) VALUES
+(6, 2, 'Reza', 'cilacap', '08230847308', 'Mandiri', '2024-05-20 10:19:30', 'Proses'),
+(7, 2, 'Reza', 'cilacap', '08230847308', 'BRI', '2024-05-20 10:26:45', 'Proses'),
+(8, 2, 'Reza', 'cilacap', '08230847308', 'Dana', '2024-05-20 14:13:47', 'Proses'),
+(9, 2, 'Reza', 'cilacap', '08230847308', 'BRI', '2024-05-20 14:18:54', 'Proses'),
+(10, 2, 'Reza', 'cilacap', '08230847308', 'BRI', '2024-05-29 05:29:23', 'BelumBayar');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history_detail`
+--
+
+CREATE TABLE `history_detail` (
+  `id` int(11) NOT NULL,
+  `id_history` int(11) NOT NULL,
+  `id_brg` int(11) NOT NULL,
+  `nama_brg` varchar(50) NOT NULL,
+  `jumlah` int(3) NOT NULL,
+  `harga` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `history_detail`
+--
+
+INSERT INTO `history_detail` (`id`, `id_history`, `id_brg`, `nama_brg`, `jumlah`, `harga`) VALUES
+(1, 1, 1, 'Sepatu Jordan', 1, 400000),
+(2, 2, 1, 'Sepatu Jordan', 2, 400000),
+(3, 2, 7, 'Baju cowok lengan panjang', 1, 150000),
+(4, 3, 3, 'Laptop', 1, 3500000),
+(8, 6, 3, 'Laptop', 1, 3500000),
+(9, 7, 7, 'Baju cowok lengan panjang', 1, 150000),
+(10, 8, 3, 'Laptop', 1, 3500000),
+(11, 8, 4, 'Canon 3000', 1, 5000000),
+(12, 9, 2, 'Hp', 1, 2500000),
+(13, 9, 4, 'Canon 3000', 1, 5000000),
+(14, 10, 16, 'Bolu Berudu Merah', 1, 50000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keranjang_belanja`
+--
+
+CREATE TABLE `keranjang_belanja` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_brg` int(11) NOT NULL,
+  `qty` int(3) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `nama_barang` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesanan`
+--
+
+CREATE TABLE `pesanan` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `nama` varchar(56) NOT NULL,
+  `alamat` varchar(225) NOT NULL,
+  `no_telp` varchar(50) NOT NULL,
+  `pembayaran` varchar(50) NOT NULL,
+  `tgl_pesan` datetime NOT NULL,
+  `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id`, `id_user`, `nama`, `alamat`, `no_telp`, `pembayaran`, `tgl_pesan`, `status`) VALUES
+(5, 2, 'Reza', 'cilacap', '08230847308', 'GoPay', '2024-05-20 08:48:37', 'Terima Pesanan'),
+(6, 2, 'Reza', 'cilacap', '08230847308', 'Mandiri', '2024-05-20 10:19:30', 'Proses'),
+(7, 2, 'Reza', 'cilacap', '08230847308', 'BRI', '2024-05-20 10:26:45', 'Proses'),
+(8, 2, 'Reza', 'cilacap', '08230847308', 'Dana', '2024-05-20 14:13:47', 'Proses'),
+(9, 2, 'Reza', 'cilacap', '08230847308', 'BRI', '2024-05-20 14:18:54', 'Proses'),
+(10, 2, 'Reza', 'cilacap', '08230847308', 'BRI', '2024-05-29 05:29:23', 'BelumBayar');
 
 -- --------------------------------------------------------
 
@@ -42,89 +175,9 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id_brg`, `nama_brg`, `keterangan`, `kategori`, `harga`, `stok`, `gambar`) VALUES
-(1, 'Sepatu Jordan', 'Sepatu Merk All-star', 'Pakaian Pria', 400000, 14, 'sepatu.jpg'),
-(2, 'Hp', 'Merk Samsung', 'Elektronik', 2500000, 9, 'hp.jpg'),
-(3, 'Laptop', 'Laptop Asus', 'Elektronik', 3500000, 8, 'laptop.jpg'),
-(4, 'Canon 3000', 'Canon 3000', 'Elektronik', 5000000, 8, 'kamera.jpg'),
-(7, 'Baju cowok lengan panjang', 'Baju Cowok lengan panjang polos pakaian pria Jova Smooth Maroon/navy', 'Pakaian Pria', 150000, 2, 'pakaian_pria.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_invoice`
---
-
-CREATE TABLE `tb_invoice` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(56) NOT NULL,
-  `alamat` varchar(225) NOT NULL,
-  `tgl_pesan` datetime NOT NULL,
-  `batas_bayar` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tb_invoice`
---
-
-INSERT INTO `tb_invoice` (`id`, `nama`, `alamat`, `tgl_pesan`, `batas_bayar`) VALUES
-(4, 'susi', 'cipayung', '2024-03-21 09:52:34', '2024-03-22 09:52:34'),
-(5, 'agus', 'cilacap', '2024-03-22 05:46:38', '2024-03-23 05:46:38'),
-(6, 'udin', 'cilacap', '2024-03-23 10:36:39', '2024-03-24 10:36:39'),
-(7, 'siti', 'Depok', '2024-03-24 10:29:45', '2024-03-25 10:29:45'),
-(8, 'siti Badriah', 'Depok', '2024-03-24 10:30:12', '2024-03-25 10:30:12'),
-(9, 'user', 'cilacap', '2024-03-24 11:07:57', '2024-03-25 11:07:57'),
-(10, 'user', 'cilacap', '2024-03-27 11:35:42', '2024-03-28 11:35:42');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_pesanan`
---
-
-CREATE TABLE `tb_pesanan` (
-  `id` int(11) NOT NULL,
-  `id_invoice` int(11) NOT NULL,
-  `id_brg` int(11) NOT NULL,
-  `nama_brg` varchar(50) NOT NULL,
-  `jumlah` int(3) NOT NULL,
-  `harga` int(10) NOT NULL,
-  `pilihan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tb_pesanan`
---
-
-INSERT INTO `tb_pesanan` (`id`, `id_invoice`, `id_brg`, `nama_brg`, `jumlah`, `harga`, `pilihan`) VALUES
-(1, 1, 4, 'Canon 3000', 1, 5000000, ''),
-(2, 1, 2, 'Hp', 1, 2500000, ''),
-(3, 1, 3, 'Laptop', 1, 3500000, ''),
-(4, 2, 4, 'Canon 3000', 1, 5000000, ''),
-(5, 3, 4, 'Canon 3000', 1, 5000000, ''),
-(6, 4, 2, 'Hp', 1, 2500000, ''),
-(7, 5, 2, 'Hp', 3, 2500000, ''),
-(8, 5, 4, 'Canon 3000', 2, 5000000, ''),
-(9, 5, 1, 'Sepatu Jordan', 1, 400000, ''),
-(10, 5, 3, 'Laptop', 2, 3500000, ''),
-(11, 6, 7, 'Baju cowok lengan panjang', 3, 150000, ''),
-(12, 7, 1, 'Sepatu Jordan', 1, 400000, ''),
-(13, 8, 4, 'Canon 3000', 1, 5000000, ''),
-(14, 9, 3, 'Laptop', 1, 3500000, ''),
-(15, 9, 4, 'Canon 3000', 1, 5000000, ''),
-(16, 10, 8, 'Jam Dinding', 1, 500000, ''),
-(17, 10, 2, 'Hp', 1, 2500000, ''),
-(18, 10, 3, 'Laptop', 1, 3500000, '');
-
---
--- Triggers `tb_pesanan`
---
-DELIMITER $$
-CREATE TRIGGER `pesanan_penjualan` AFTER INSERT ON `tb_pesanan` FOR EACH ROW BEGIN
-	UPDATE tb_barang SET stok=stok-NEW.jumlah
-    WHERE id_brg=NEW.id_brg;
-END
-$$
-DELIMITER ;
+(13, 'Bolu Kukus', 'beli 1 isi 5', 'Bolu', 15000, 100, 'Bolu_Kukus.PNG'),
+(15, 'Bolu Gulung', 'Enak dan Manis', 'Bolu', 100000, 20, 'bolu_gulung1.png'),
+(16, 'Bolu Berudu Merah', 'Enak dan Manis', 'Bolu', 50000, 19, 'bolu_berudu_merah1.png');
 
 -- --------------------------------------------------------
 
@@ -137,7 +190,7 @@ CREATE TABLE `tb_user` (
   `nama` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `no_telp` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `role_id` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -146,33 +199,53 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id`, `nama`, `alamat`, `no_telp`, `username`, `password`, `role_id`) VALUES
-(1, 'admin', 'Bogor', '08746373475', 'admin', 'admin', 1),
-(2, 'user', 'cilacap', '08230847308', 'user', 'user', 2),
-(3, 'Dodi', 'Depok', '08762354673', 'Dodi', '1234', 2),
-(4, 'siti', 'Depok', '08236487', 'Siti Badriah', '123', 2);
+INSERT INTO `tb_user` (`id`, `nama`, `alamat`, `no_telp`, `email`, `password`, `role_id`) VALUES
+(1, 'admin', 'Bogor', '08746373475', 'admin@gmail.com', 'admin', 1),
+(2, 'Reza', 'cilacap', '08230847308', 'user@gmail.com', 'user', 2),
+(3, 'Dodi', 'Depok', '08762354673', 'Dodi@gmail.com', '1234', 2),
+(4, 'siti Badriah', 'Depok', '08236487', 'Siti@gmail.com', '123', 3),
+(5, 'sisi', 'aksjdhksajdh', '29387493284', 'sisi@gmail.com', 'sisi', 2),
+(6, 'jojo', 'khabdhsabd', '7687387623', 'khabib@gmail.com', '11', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `detail_pesanan`
+--
+ALTER TABLE `detail_pesanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `history_detail`
+--
+ALTER TABLE `history_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `keranjang_belanja`
+--
+ALTER TABLE `keranjang_belanja`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
   ADD PRIMARY KEY (`id_brg`);
-
---
--- Indexes for table `tb_invoice`
---
-ALTER TABLE `tb_invoice`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tb_pesanan`
---
-ALTER TABLE `tb_pesanan`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tb_user`
@@ -185,28 +258,46 @@ ALTER TABLE `tb_user`
 --
 
 --
--- AUTO_INCREMENT for table `tb_barang`
+-- AUTO_INCREMENT for table `detail_pesanan`
 --
-ALTER TABLE `tb_barang`
-  MODIFY `id_brg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `detail_pesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `tb_invoice`
+-- AUTO_INCREMENT for table `history`
 --
-ALTER TABLE `tb_invoice`
+ALTER TABLE `history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tb_pesanan`
+-- AUTO_INCREMENT for table `history_detail`
 --
-ALTER TABLE `tb_pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+ALTER TABLE `history_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `keranjang_belanja`
+--
+ALTER TABLE `keranjang_belanja`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `tb_barang`
+--
+ALTER TABLE `tb_barang`
+  MODIFY `id_brg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

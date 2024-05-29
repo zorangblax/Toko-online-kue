@@ -1,5 +1,4 @@
 <div class="container-fluid">
-    <?php echo $this->session->flashdata('pesan'); ?>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -24,11 +23,11 @@
     </div>
 
     <div class="row text-center mt-3">
-        <?php foreach ($barang as $brg) : ?>
+        <?php foreach ($cake as $brg) : ?>
             <div class="card ml-3 mb-3" style="width: 16rem;">
-                <img src="<?php echo base_url() . '/uploads/' . $brg->gambar ?>" class="card-img-top" style="width: 100%; height: auto;" alt="...">
-                <div class="card-body" style="width: 100%;">
-                    <h5 class=" card-title"><?php echo $brg->nama_brg ?></h5>
+                <img src="<?php echo base_url() . '/uploads/' . $brg->gambar ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $brg->nama_brg ?></h5>
                     <small><?php echo $brg->keterangan  ?></small><br>
                     <span class="badge badge-info mb-3">Rp.<?php echo number_format($brg->harga, 0, ',', '.') ?></span><br>
                     <?php
