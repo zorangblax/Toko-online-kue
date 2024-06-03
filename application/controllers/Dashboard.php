@@ -47,6 +47,7 @@ class Dashboard extends CI_Controller
             $this->db->where('id_brg', $barang->id_brg);
             $this->db->update('tb_barang');
         }
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success">Barang berhasil ditambahkan ke keranjang</div>');
 
         redirect('home');
     }
@@ -95,6 +96,7 @@ class Dashboard extends CI_Controller
             $this->db->update('tb_barang');
         }
 
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success">Barang berhasil di Hapus</div>');
         // Redirect kembali ke halaman keranjang belanja
         redirect('dashboard/detail_keranjang');
     }
@@ -118,6 +120,7 @@ class Dashboard extends CI_Controller
         // Hapus semua item keranjang pengguna
         $this->db->delete('keranjang_belanja', array('id_user' => $user_id));
 
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success">Keranjang berhasil di Hapus</div>');
         // Redirect kembali ke halaman keranjang belanja
         redirect('home');
     }

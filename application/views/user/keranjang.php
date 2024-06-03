@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <h4>Keranjang Belanja</h4>
+    <div><?php echo $this->session->flashdata('pesan'); ?></div>
     <table class="table table-bordered table-striped table-hover">
         <tr>
             <th>NO</th>
