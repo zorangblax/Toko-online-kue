@@ -16,7 +16,13 @@
             </div>
             <div class="form-group">
                 <label>Kategori</label>
-                <input type="text" name="kategori" class="form-control" value="<?php echo $brg->kategori ?>">
+                <select name="kategori" class="form-control">
+                    <option value="Cake" <?php echo ($brg->kategori == 'Cake') ? 'selected' : ''; ?>>Cake</option>
+                    <option value="Bolu" <?php echo ($brg->kategori == 'Bolu') ? 'selected' : ''; ?>>Bolu</option>
+                    <option value="Donat" <?php echo ($brg->kategori == 'Donat') ? 'selected' : ''; ?>>Donat</option>
+                    <option value="Idul Fitri" <?php echo ($brg->kategori == 'Idul Fitri') ? 'selected' : ''; ?>>Idul Fitri</option>
+
+                </select>
             </div>
             <div class="form-group">
                 <label>Harga</label>

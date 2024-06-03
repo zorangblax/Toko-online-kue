@@ -16,8 +16,9 @@ class Data_barang extends CI_Controller
     }
     public function index()
     {
+        $data['title'] = 'Data Barang';
         $data['barang'] = $this->model_barang->tampil_data()->result();
-        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/data_barang', $data);
         $this->load->view('templates_admin/footer');
@@ -59,8 +60,9 @@ class Data_barang extends CI_Controller
     {
         $where = array('id_brg' => $id);
         $data['barang'] = $this->model_barang->edit_barang($where, 'tb_barang')->result();
+        $data['title'] = 'Edit Barang';
 
-        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/edit_barang', $data);
         $this->load->view('templates_admin/footer');
@@ -97,7 +99,8 @@ class Data_barang extends CI_Controller
     public function detail($id_brg)
     {
         $data['barang'] = $this->model_barang->detail_brg($id_brg);
-        $this->load->view('templates/header');
+        $data['title'] = 'Detail Barang';
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('admin/detail_barang', $data);
         $this->load->view('templates/footer');

@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    <a id="top"></a>
     <?php echo $this->session->flashdata('pesan'); ?>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -7,10 +8,10 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="<?php echo base_url('assets/img/slider/slider1.jpg') ?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url('assets/img/slider/grandopening.png') ?>" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="<?php echo base_url('assets/img/slider/slider2.jpg') ?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url('assets/img/slider/kuecoklat.png') ?>" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
@@ -29,7 +30,7 @@
                 <img src="<?php echo base_url() . '/uploads/' . $brg->gambar ?>" class="card-img-top" style="width: 100%; height: auto;" alt="...">
                 <div class="card-body" style="width: 100%;">
                     <h5 class=" card-title"><?php echo $brg->nama_brg ?></h5>
-                    <small><?php echo $brg->keterangan  ?></small><br>
+
                     <span class="badge badge-info mb-3">Rp.<?php echo number_format($brg->harga, 0, ',', '.') ?></span><br>
                     <?php
                     if ($brg->stok > 0) {
@@ -42,5 +43,8 @@
                 </div>
             </div>
         <?php endforeach ?>
+    </div>
+    <div class="text-center mt-3" style="position: fixed; bottom: 20px; right: 20px; z-index: 99;">
+        <a href="#top" class="btn btn-primary"><i class="fas fa-arrow-circle-up"></i></a>
     </div>
 </div>

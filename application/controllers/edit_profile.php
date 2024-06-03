@@ -16,6 +16,7 @@ class Edit_profile extends CI_Controller
     }
     public function index()
     {
+        $data['title'] = 'Edit Profile';
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('user/edit_user');
@@ -23,6 +24,7 @@ class Edit_profile extends CI_Controller
     }
     public function kurir()
     {
+        $data['title'] = 'Kurir';
         $this->load->view('templates_kurir/header');
         $this->load->view('templates_kurir/sidebar');
         $this->load->view('kurir/edit_user_kurir');
@@ -43,7 +45,7 @@ class Edit_profile extends CI_Controller
         // Set rules untuk validasi form
         $this->form_validation->set_rules('old_password', 'Old Password', 'required');
         $this->form_validation->set_rules('new_password', 'New Password', 'required');
-        $this->form_validation->set_rules('repeat_password', 'Repeat Password', 'required|matches[new_password]');
+        $this->form_validation->set_rules('repeat_password', 'Repeat Password', 'required|matches[new_password]', ['matches' => 'Password tidak cocok']);
 
         if ($this->form_validation->run() == FALSE) {
             // Jika validasi gagal, kembali ke halaman form dengan pesan kesalahan

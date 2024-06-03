@@ -66,11 +66,11 @@
                 <form action="<?php echo base_url('admin/data_barang/tambah_aksi') ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Nama Barang</label>
-                        <input type="text" name="nama_brg" class="form-control">
+                        <input type="text" name="nama_brg" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Keterangan</label>
-                        <input type="text" name="keterangan" class="form-control">
+                        <input type="text" name="keterangan" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Kategori</label>
@@ -83,15 +83,15 @@
                     </div>
                     <div class="form-group">
                         <label>Harga</label>
-                        <input type="text" name="harga" class="form-control">
+                        <input type="text" name="harga" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Stok</label>
-                        <input type="text" name="stok" class="form-control">
+                        <input type="text" name="stok" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Gambar</label>
-                        <input type="file" name="gambar" class="form-control">
+                        <input type="file" name="gambar" class="form-control" required>
                     </div>
             </div>
             <div class="modal-footer">

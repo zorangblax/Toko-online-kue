@@ -21,9 +21,10 @@ class Shipping extends CI_Controller
 
         // Panggil method dari model untuk mengambil data berdasarkan ID dari session
         $data['records'] = $this->model_pesanan->get_data_by_user_id($user_id);
+        $data['title'] = 'Status Pesanan';
 
         // Load view dan kirim data ke view
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('user/shipping', $data);
         $this->load->view('templates/footer');
@@ -33,8 +34,8 @@ class Shipping extends CI_Controller
     {
         $data['history'] = $this->model_pesanan->ambil_id_history($id_history);
         $data['pesanan'] = $this->model_pesanan->ambil_id_history_detail($id_history);
-
-        $this->load->view('templates/header');
+        $data['title'] = 'Detail status Pesanan';
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('user/detail_shipping', $data);
         $this->load->view('templates/footer');

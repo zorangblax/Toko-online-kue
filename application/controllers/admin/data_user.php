@@ -17,7 +17,8 @@ class Data_user extends CI_Controller
   public function index()
   {
     $data['users'] = $this->model_edit_user->get_all_users();
-    $this->load->view('templates_admin/header');
+    $data['title'] = 'Data User';
+    $this->load->view('templates_admin/header', $data);
     $this->load->view('templates_admin/sidebar');
     $this->load->view('admin/data_user', $data);
     $this->load->view('templates_admin/footer');
@@ -25,7 +26,8 @@ class Data_user extends CI_Controller
   public function edit_user($user_id)
   {
     $data['user'] = $this->model_edit_user->get_user_by_id($user_id);
-    $this->load->view('templates_admin/header');
+    $data['title'] = 'Edit User';
+    $this->load->view('templates_admin/header', $data);
     $this->load->view('templates_admin/sidebar');
     $this->load->view('admin/edit_data_user', $data);
     $this->load->view('templates_admin/footer');

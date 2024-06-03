@@ -18,7 +18,8 @@ class laporan extends CI_Controller
     {
         $data['total_harga'] = $this->model_pesanan->total_harga();
         $data['laporan'] = $this->model_pesanan->tampil_data();
-        $this->load->view('templates_admin/header');
+        $data['title'] = 'Laporan';
+        $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/laporan', $data);
         $this->load->view('templates_admin/footer');
@@ -27,8 +28,9 @@ class laporan extends CI_Controller
     {
         $data['pesanan'] = $this->model_pesanan->ambil_id_pesanan($id_pesanan);
         $data['detail'] = $this->model_pesanan->ambil_id_detail_pesanan($id_pesanan);
+        $data['title'] = 'Detail Laporan';
 
-        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/header', $data);
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/detail_laporan', $data);
         $this->load->view('templates_admin/footer');

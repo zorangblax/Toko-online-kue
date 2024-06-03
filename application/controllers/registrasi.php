@@ -3,6 +3,7 @@ class Registrasi extends CI_Controller
 {
     public function index()
     {
+        $data['title'] = 'Regisrasi';
         $this->form_validation->set_rules('nama', 'Nama', 'required', ['required' => 'Nama Wajib di isi']);
         $this->form_validation->set_rules('alamat', 'Alamat', 'required', ['required' => 'Alamat Wajib di isi']);
         $this->form_validation->set_rules('no_telp', 'No telp', 'required', ['required' => 'No Telp Wajib di isi']);
@@ -10,7 +11,7 @@ class Registrasi extends CI_Controller
         $this->form_validation->set_rules('password_1', 'Password_1', 'required|matches[password_2]', ['required' => 'Password Wajib di isi', 'matches' => 'Password tidak cocok']);
         $this->form_validation->set_rules('password_2', 'Password_2', 'required|matches[password_1]');
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('auth/registrasi');
             $this->load->view('templates/footer');
         } else {

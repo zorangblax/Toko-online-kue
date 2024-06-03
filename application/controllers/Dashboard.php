@@ -52,6 +52,7 @@ class Dashboard extends CI_Controller
     }
     public function detail_keranjang()
     {
+        $data['title'] = 'Detail Keranjang';
         // Ambil ID pengguna dari session
         $user_id = $this->session->userdata('id');
 
@@ -66,7 +67,7 @@ class Dashboard extends CI_Controller
             // Jika tidak ada, inisialisasikan $keranjang sebagai array kosong
             $keranjang = array();
         }
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('user/keranjang', array('keranjang' => $keranjang));
         $this->load->view('templates/footer');
@@ -124,7 +125,8 @@ class Dashboard extends CI_Controller
 
     public function pembayaran()
     {
-        $this->load->view('templates/header');
+        $data['title'] = 'Pembayaran';
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('user/pembayaran');
         $this->load->view('templates/footer');
@@ -147,6 +149,7 @@ class Dashboard extends CI_Controller
     public function detail($id_brg)
     {
         $data['barang'] = $this->model_barang->detail_brg($id_brg);
+        $data['title'] = 'Detail Barang';
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('user/detail_barang', $data);

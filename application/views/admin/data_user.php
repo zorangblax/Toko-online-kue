@@ -2,14 +2,14 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Data User</h1>
     <br>
-    <a href="<?php echo base_url('admin/data_user/tambahuser'); ?>" class="btn btn-success">Tambah User ++</a>
+
 
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">
-                Data Tabel
+                <a href="<?php echo base_url('admin/data_user/tambahuser'); ?>" class="btn btn-success">Tambah User ++</a>
             </h6>
         </div>
         <div class="card-body">

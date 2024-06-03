@@ -10,15 +10,15 @@
             <form method="post" action="<?php echo base_url('edit_profile/proses_edit_user') ?>">
                 <div class="form-group">
                     <label>Nama Lengkap</label>
-                    <input type="text" name="nama" placeholder="Nama Lengkap anda" class="form-control" value="<?php echo $this->session->userdata('nama'); ?>">
+                    <input type="text" name="nama" placeholder="Nama Lengkap anda" class="form-control" value="<?php echo $this->session->userdata('nama'); ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Alamat Lengkap</label>
-                    <input type="text" name="alamat" placeholder="Alamat Lengkap anda" class="form-control" value="<?php echo $this->session->userdata('alamat'); ?>">
+                    <input type="text" name="alamat" placeholder="Alamat Lengkap anda" class="form-control" value="<?php echo $this->session->userdata('alamat'); ?>" required>
                 </div>
                 <div class=" form-group">
                     <label>No Telp</label>
-                    <input type="text" name="no_telp" placeholder="No Telepon Anda" class="form-control" value="<?php echo $this->session->userdata('no_telp'); ?>">
+                    <input type="text" name="no_telp" placeholder="No Telepon Anda" class="form-control" value="<?php echo $this->session->userdata('no_telp'); ?>" required>
                 </div>
                 <button type="submit" class="btn btn-sm btn-success">Edit</button>
                 <a class="btn btn-sm btn-primary" href="<?php echo base_url('home') ?>">Kembali</a>

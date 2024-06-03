@@ -9,16 +9,15 @@
             <h3> Edit User</h3>
             <form method="post" action="<?php echo base_url('admin/data_user/proses_edit_user') ?>">
                 <div class="form-group">
-                    <label>Username</label>
                     <input type="hidden" name="user_id" class="form-control" value="<?php echo $user['id']; ?>">
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" placeholder="username" class="form-control" value="<?php echo $user['username']; ?>">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="email" class="form-control" value="<?php echo $user['email']; ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" placeholder="Alamat Lengkap anda" class="form-control" value="<?php echo $user['password']; ?>">
+                    <input type="password" name="password" placeholder="Alamat Lengkap anda" class="form-control" value="<?php echo $user['password']; ?>" required>
                 </div>
                 <button type="submit" class="btn btn-sm btn-success">Edit</button>
                 <a class="btn btn-sm btn-primary" href="<?php echo base_url('admin/data_user') ?>">Kembali</a>

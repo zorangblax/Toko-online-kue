@@ -71,7 +71,7 @@
                         <a class="collapse-item" href="<?php echo base_url('kategori/cake') ?>">
                             <i class="fas fa-angle-right"></i>
                             <span>Cake</span></a>
-                        <a class="collapse-item" href="<?php echo base_url('kategori/idul_fitr') ?>">
+                        <a class="collapse-item" href="<?php echo base_url('kategori/idul_fitri') ?>">
                             <i class="fas fa-angle-right"></i>
                             <span>Idul Fitri</span></a>
                         <a class="collapse-item" href="<?php echo base_url('kategori/donat') ?>">

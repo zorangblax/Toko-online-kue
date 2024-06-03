@@ -3,10 +3,11 @@ class Auth extends CI_Controller
 {
     public function login()
     {
+        $data['title'] = 'Login';
         $this->form_validation->set_rules('email', 'Email', 'required', ['required' => 'Email Wajib di isi']);
         $this->form_validation->set_rules('password', 'Password', 'required', ['required' => 'Password Wajib di isi']);
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('auth/form_login');
             $this->load->view('templates/footer');
         } else {

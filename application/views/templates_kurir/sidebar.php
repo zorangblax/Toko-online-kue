@@ -29,7 +29,7 @@
                             </div>
 
                             <ul class="nav navbar-nav navbar-right">
-                                <?php if ($this->session->userdata('username')) { ?>
+                                <?php if ($this->session->userdata('email')) { ?>
                                     <li>
                                         <div>Selamat Datang <?php echo $this->session->userdata('nama'); ?> </div>
                                     </li>

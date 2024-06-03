@@ -6,10 +6,10 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="<?php echo base_url('assets/img/slider/slider1.jpg') ?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url('assets/img/slider/grandopening.png') ?>" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="<?php echo base_url('assets/img/slider/slider2.jpg') ?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url('assets/img/slider/kuecoklat.png') ?>" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
